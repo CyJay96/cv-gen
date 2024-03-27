@@ -9,6 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 @NgModule({
   declarations: [SharedComponent, HeaderComponent],
   imports: [CommonModule, SharedRoutingModule, HttpClientModule],
+  exports: [HeaderComponent],
   providers: [],
   bootstrap: [SharedComponent],
 })
