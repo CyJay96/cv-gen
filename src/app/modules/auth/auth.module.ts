@@ -6,8 +6,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
 
+import { LoginComponent } from './components/login/login.component';
+
 @NgModule({
-  declarations: [AuthComponent],
+  declarations: [AuthComponent, LoginComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
@@ -18,4 +20,4 @@ import { AuthComponent } from './auth.component';
   providers: [],
   bootstrap: [AuthComponent],
 })
-export class CoreModule {}
+export class AuthModule {}

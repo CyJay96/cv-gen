@@ -1,0 +1,87 @@
+.auth_body {
+  font-style: normal;
+  background: url("../../../../../assets/images/auth/login_background.svg");
+}
+
+.global_btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.question_btn {
+  position: absolute;
+  cursor: pointer;
+  right: 77px;
+  bottom: 42px;
+}
+
+.auth_wrap {
+  display: flex;
+  flex-direction: column;
+  padding: 150px 200px 100px 180px;
+}
+
+.title_wrap {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.title_img {
+  width: 45px;
+}
+
+.title_name {
+  font-weight: 800;
+  font-size: 33px;
+  line-height: 38px;
+}
+
+.form {
+  margin: auto;
+}
+
+.red_star {
+  color: red;
+}
+
+.email_input,
+.password_input {
+  width: 360px;
+  height: 32px;
+  padding: 5px;
+  border-radius: 2px;
+  border-color: #d9d9d9;
+  background: #ffffff;
+}
+
+.login_btn {
+  background: #1890ff;
+  color: white;
+  border: 1px solid #1890ff;
+  cursor: pointer;
+  width: 360px;
+  height: 40px;
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.043);
+  border-radius: 2px;
+}
+
+.email_input::placeholder,
+.password_input::placeholder {
+  font-size: 14px;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.25);
+}
+
+.help_btns {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.forgot_password {
+  cursor: pointer;
+  color: #1890ff;
+}

@@ -18,4 +18,4 @@ import { CoreComponent } from './core.component';
   providers: [],
   bootstrap: [CoreComponent],
 })
-export class AuthModule {}
+export class CoreModule {}

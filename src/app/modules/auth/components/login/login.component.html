@@ -1,0 +1,65 @@
+<div class="auth_body">
+  <img
+    class="global_btn"
+    src="../../../../../assets/images/auth/global_btn.svg"
+    alt="Global"
+  />
+
+  <div class="auth_wrap">
+    <div class="title_wrap">
+      <img
+        class="title_img"
+        src="../../../../../assets/images/auth/logo.svg"
+        alt="Ant Design"
+      />
+      <label class="title_name">Ant Design</label>
+    </div>
+    <div class="form" [formGroup]="form">
+      <div>Username <span class="red_star">*</span></div>
+      <div>
+        <input
+          class="email_input"
+          type="text"
+          placeholder="Username"
+          formControlName="email"
+        />
+      </div>
+      <span
+        class="error"
+        *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
+        >Please, specify the field</span
+      >
+      <div>Password <span class="red_star">*</span></div>
+      <div>
+        <input
+          class="password_input"
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+      </div>
+      <span
+        class="error"
+        *ngIf="form.get('password')?.invalid && form.get('password')?.touched"
+        >Please, specify the field</span
+      >
+      <div class="help_btns">
+        <div>
+          <input type="checkbox" id="remember_me" name="remember_me" />
+          <label for="remember_me">Remember me</label>
+        </div>
+
+        <span class="forgot_password">Forgot your password?</span>
+      </div>
+      <div>
+        <button class="login_btn" (click)="login()">Login</button>
+      </div>
+    </div>
+  </div>
+
+  <img
+    class="question_btn"
+    src="../../../../../assets/images/auth/question_btn.svg"
+    alt="Question"
+  />
+</div>
