@@ -6,10 +6,13 @@
 
 .header_wrap {
   font-style: normal;
+
   background-color: #001529;
   color: white;
   padding: 0px 16px;
   height: 48px;
+
+  box-shadow: inset 0px -1px 0px #f0f0f0;
 }
 
 .title_wrap {
