@@ -1,0 +1,35 @@
+<app-header></app-header>
+
+<div class="body_wrap">
+  <app-sider></app-sider>
+
+  <div class="emps_wrap">
+    <div class="emps">
+      <div class="btn_wrap">
+        <button class="add_emp_btn" (click)="addEmployee()">
+          Add employee
+        </button>
+      </div>
+
+      <table class="emp_table">
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Department</th>
+          <th>Specialization</th>
+        </tr>
+        <tr
+          *ngFor="let employee of employees"
+          (click)="toEmployeeInfoById(employee.id)"
+        >
+          <td>{{ employee.firstName }}</td>
+          <td>{{ employee.lastName }}</td>
+          <td>{{ employee.email }}</td>
+          <td>{{ employee.department?.name }}</td>
+          <td>{{ employee.specialization?.name }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

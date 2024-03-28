@@ -1,0 +1,80 @@
+.body_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.emps_wrap {
+  font-style: normal;
+  background-color: #fafafa;
+  height: calc(100vh - 48px);
+  width: 100%;
+  padding: 24px 15px;
+}
+
+.emps {
+  display: flex;
+  flex-direction: column;
+
+  background-color: white;
+  height: calc(100vh - 48px - 24px);
+}
+
+.btn_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  margin: 40px 20px 0px 20px;
+}
+
+.add_emp_btn {
+  cursor: pointer;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ffffff;
+
+  width: 121px;
+  height: 32px;
+  background: #1890ff;
+  border: 0px;
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.043);
+  border-radius: 2px;
+}
+
+.add_emp_btn:hover,
+.add_emp_btn:focus {
+  background-color: #188fffc0;
+}
+
+.emp_table {
+  border-collapse: collapse;
+  margin: 40px 20px;
+}
+
+.emp_table th,
+.emp_table td {
+  font-size: 14px;
+  line-height: 22px;
+
+  height: 56px;
+
+  border-bottom: 1px solid #ebebeb;
+  padding: 8px;
+}
+
+.emp_table tr:hover,
+.emp_table tr:focus {
+  background-color: #dddd;
+}
+
+.emp_table th {
+  font-weight: 700;
+  text-align: left;
+  background-color: #fafafa;
+}
+
+.emp_table td {
+  cursor: pointer;
+}
