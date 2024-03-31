@@ -1,3 +1,123 @@
 <app-header></app-header>
 
-<app-sider></app-sider>
+<div class="body_wrap">
+  <app-sider></app-sider>
+
+  <div class="emp_wrap">
+    <div class="emp_info">
+      <div class="navbar">
+        <button class="info_btn">Info</button>
+        <button class="cv_btn" (click)="toEmployeeCvInfoById()">CV</button>
+        <div class="navbar_empty"></div>
+      </div>
+
+      <div class="emp_form" [formGroup]="form">
+        <div class="form_el">
+          <span class="form_title"
+            >First Name <span class="red_star">*</span></span
+          >
+          <input
+            type="text"
+            class="form_input"
+            placeholder="First Name"
+            value="{{ employee?.firstName }}"
+            formControlName="firstName"
+          />
+          <span
+            *ngIf="
+              form.get('firstname')?.invalid && form.get('firstname')?.touched
+            "
+            class="error"
+            >Please, specify the field</span
+          >
+        </div>
+
+        <div class="form_el">
+          <span class="form_title"
+            >Last Name <span class="red_star">*</span></span
+          >
+          <input
+            type="text"
+            class="form_input"
+            placeholder="Last Name"
+            value="{{ employee?.lastName }}"
+            formControlName="lastName"
+          />
+          <span
+            *ngIf="
+              form.get('lastname')?.invalid && form.get('lastname')?.touched
+            "
+            class="error"
+            >Please, specify the field</span
+          >
+        </div>
+
+        <div class="form_el">
+          <span class="form_title">Email <span class="red_star">*</span></span>
+          <input
+            type="text"
+            class="form_input"
+            placeholder="Email"
+            value="{{ employee?.email }}"
+            formControlName="email"
+          />
+          <span
+            *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
+            class="error"
+            >Please, specify the field</span
+          >
+        </div>
+
+        <div class="form_el">
+          <span class="form_title"
+            >Specialization <span class="red_star">*</span></span
+          >
+          <input
+            type="text"
+            class="form_input"
+            placeholder="Specialization"
+            value="{{ employee?.specialization?.name }}"
+            formControlName="specialization"
+          />
+          <span
+            *ngIf="
+              form.get('specialization')?.invalid &&
+              form.get('specialization')?.touched
+            "
+            class="error"
+            >Please, specify the field</span
+          >
+        </div>
+
+        <div class="form_el">
+          <span class="form_title"
+            >Department <span class="red_star">*</span></span
+          >
+          <input
+            type="text"
+            class="form_input"
+            placeholder="Department"
+            value="{{ employee?.department?.name }}"
+            formControlName="department"
+          />
+          <span
+            *ngIf="
+              form.get('department')?.invalid && form.get('department')?.touched
+            "
+            class="error"
+            >Please, specify the field</span
+          >
+        </div>
+      </div>
+
+      <div class="btns">
+        <div class="save_btn_wrap">
+          <button class="save_btn" (click)="updateEmployee()">Save</button>
+        </div>
+        <div class="cancel_btn_wrap">
+          <button class="cancel_btn" (click)="toEmployeeList()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

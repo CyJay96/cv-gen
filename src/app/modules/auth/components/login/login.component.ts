@@ -38,7 +38,7 @@ export class LoginComponent {
         localStorage.setItem('email', this.form.getRawValue().email);
         localStorage.setItem('access_token', response.access_token);
         localStorage.setItem('refresh_token', response.refresh_token);
-        this.router.navigateByUrl('/employee-info');
+        this.router.navigateByUrl('/employee-list');
       });
   }
 }

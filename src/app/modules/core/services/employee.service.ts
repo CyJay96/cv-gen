@@ -40,7 +40,7 @@ export class EmployeeService {
   }
 
   updateEmployee(id: number, employeeDto: EmployeeDto): Observable<Employee> {
-    return this.http.patch<Employee>(this.url + `/${id}`, employeeDto).pipe(
+    return this.http.put<Employee>(this.url + `/${id}`, employeeDto).pipe(
       tap((updatedEmployee: Employee) => console.log(updatedEmployee)),
       catchError(this.errorService.handleError<Employee>('updated employee'))
     );

@@ -4,15 +4,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 
 import { Employee } from '../../models/employee';
-import { EmployeeDto } from '../../models/emplyee-dto';
 import { EmployeeService } from '../../services/employee.service';
 
 @Component({
-  selector: 'app-employee-info',
-  templateUrl: './employee-info.component.html',
-  styleUrls: ['./employee-info.component.css'],
+  selector: 'app-employee-cv-info',
+  templateUrl: './employee-cv-info.component.html',
+  styleUrls: ['./employee-cv-info.component.css'],
 })
-export class EmployeeInfoComponent implements OnInit {
+export class EmployeeCvInfoComponent implements OnInit {
   private employeeId = Number(this.route.snapshot.paramMap.get('id'));
 
   public employee: Employee = null;
@@ -27,11 +26,7 @@ export class EmployeeInfoComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.form = fb.group({
-      firstName: fb.control('', Validators.required),
-      lastName: fb.control('', Validators.required),
       email: fb.control('', Validators.required),
-      specialization: fb.control('', Validators.required),
-      department: fb.control('', Validators.required),
     });
   }
 
@@ -44,24 +39,12 @@ export class EmployeeInfoComponent implements OnInit {
       .getEmployeeById(this.employeeId)
       .subscribe((employee) => {
         this.employee = employee;
-        this.form.patchValue(this.employee);
+        // this.form.patchValue(this.employee);
       });
   }
 
-  toEmployeeCvInfoById(): void {
-    this.router.navigateByUrl(`/employee-cv-info/${this.employeeId}`);
-  }
-
-  updateEmployee(): void {
-    if (this.form.invalid) {
-      return;
-    }
-
-    this.employeeService
-      .updateEmployee(this.employeeId, this.form.getRawValue() as EmployeeDto)
-      .subscribe((_) => {
-        this.router.navigateByUrl('/employee-list');
-      });
+  toEmployeeInfoById(): void {
+    this.router.navigateByUrl(`/employee-info/${this.employeeId}`);
   }
 
   toEmployeeList(): void {

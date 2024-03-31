@@ -1,0 +1,133 @@
+.body_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.emp_wrap {
+  font-style: normal;
+  background-color: #fafafa;
+  height: calc(100vh - 48px);
+  width: 100%;
+  padding: 24px 15px;
+}
+
+.emp_info {
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px 15px;
+
+  background-color: white;
+  height: calc(100vh - 48px - 24px);
+}
+
+.navbar {
+  display: flex;
+}
+
+.info_btn,
+.cv_btn {
+  cursor: pointer;
+
+  width: 55.5px;
+  height: 64px;
+
+  background-color: white;
+
+  border: 0px;
+}
+
+.info_btn {
+  color: #1890ff;
+  border-bottom: 2px solid #1890ff;
+}
+
+.cv_btn {
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.navbar_empty {
+  width: 100%;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.emp_form {
+  display: flex;
+  flex-wrap: wrap;
+
+  padding: 10px;
+}
+
+.form_el {
+  display: flex;
+  flex-direction: column;
+
+  padding: 10px 0px;
+  padding-right: 60px;
+}
+
+.form_input {
+  padding: 5px 12px;
+
+  width: 200px;
+  height: 32px;
+
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: 1px solid #d9d9d9;
+}
+
+.red_star {
+  color: red;
+}
+
+.btns {
+  display: flex;
+  padding: 10px;
+
+  position: absolute;
+  right: 25px;
+  bottom: 34px;
+}
+
+.save_btn,
+.cancel_btn {
+  cursor: pointer;
+  height: 32px;
+
+  margin-left: 15px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.save_btn {
+  width: 62px;
+
+  color: white;
+
+  background: #1890ff;
+  box-sizing: border-box;
+  border: 0px;
+  border-radius: 2px;
+}
+
+.cancel_btn {
+  width: 75px;
+
+  background: #ffffff;
+  box-sizing: border-box;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+}
+
+.save_btn:hover,
+.save_btn:focus {
+  background-color: #188fffc0;
+}
+
+.cancel_btn:hover,
+.cancel_btn:focus {
+  background-color: #d9d9d9;
+}

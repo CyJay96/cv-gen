@@ -72,6 +72,7 @@ select {
   font-size: 30px;
 }
 
+.red_star,
 .error {
   color: red;
 }

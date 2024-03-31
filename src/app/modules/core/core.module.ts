@@ -10,9 +10,15 @@ import { AuthInterceptor } from 'src/app/interceptors/auth.interceptor';
 
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { EmployeeInfoComponent } from './components/employee-info/employee-info.component';
+import { EmployeeCvInfoComponent } from './components/employee-cv-info/employee-cv-info.component';
 
 @NgModule({
-  declarations: [CoreComponent, EmployeeListComponent, EmployeeInfoComponent],
+  declarations: [
+    CoreComponent,
+    EmployeeListComponent,
+    EmployeeInfoComponent,
+    EmployeeCvInfoComponent,
+  ],
   imports: [
     CommonModule,
     CoreRoutingModule,
