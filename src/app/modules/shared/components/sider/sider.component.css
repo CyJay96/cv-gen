@@ -1,11 +1,13 @@
-.sider {
-  font-style: normal;
+.sider_wrap {
+  height: 100%;
+}
 
+.sider {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  height: calc(100vh - 48px);
+  height: 100%;
   width: 208px;
   top: 47px;
   bottom: 1px;
@@ -22,7 +24,6 @@
   cursor: pointer;
 
   display: flex;
-  flex-direction: row;
   align-items: center;
 
   padding-left: 16px;
@@ -50,12 +51,8 @@
 }
 
 .trigger {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   padding: 0px 16px;
 
-  margin: 0 auto;
   width: 208px;
   height: 40px;
 
@@ -64,6 +61,5 @@
 
 .trigger_img {
   cursor: pointer;
-
   padding-top: 12px;
 }

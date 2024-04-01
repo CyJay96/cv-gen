@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Location } from '@angular/common';
 
-import { Employee } from '../../models/employee';
-import { EmployeeService } from '../../services/employee.service';
+import { Cv } from '../../models/cv';
+import { CvService } from '../../services/cv.service';
 
 @Component({
   selector: 'app-employee-cv-info',
@@ -14,40 +13,66 @@ import { EmployeeService } from '../../services/employee.service';
 export class EmployeeCvInfoComponent implements OnInit {
   private employeeId = Number(this.route.snapshot.paramMap.get('id'));
 
-  public employee: Employee = null;
+  public cvs: Cv[];
+  public currentCv: Cv = null;
 
   public form: FormGroup;
 
   constructor(
-    private employeeService: EmployeeService,
+    private cvService: CvService,
     private router: Router,
     private route: ActivatedRoute,
-    private location: Location,
     private fb: FormBuilder
   ) {
     this.form = fb.group({
       email: fb.control('', Validators.required),
+      lastName: fb.control('', Validators.required),
+      skills: fb.control('', Validators.required),
+      specialization: fb.control('', Validators.required),
+      department: fb.control('', Validators.required),
     });
   }
 
   ngOnInit(): void {
-    this.getEmployeeById();
+    this.getCvsByEmployeeId();
   }
 
-  getEmployeeById(): void {
-    this.employeeService
-      .getEmployeeById(this.employeeId)
-      .subscribe((employee) => {
-        this.employee = employee;
-        // this.form.patchValue(this.employee);
-      });
+  getCvsByEmployeeId(): void {
+    this.cvService.getCvs().subscribe((cvs) => {
+      cvs = cvs.filter((cv) => cv.employeeId === this.employeeId);
+      this.cvs = cvs;
+      if (cvs.length) {
+        this.currentCv = cvs.at(0);
+      }
+    });
   }
 
-  toEmployeeInfoById(): void {
+  setCurrentCv(cv: Cv): void {
+    this.currentCv = cv;
+  }
+
+  deleteCvById(id: number): void {
+    this.cvs = this.cvs.filter((cv) => cv.id !== id);
+    this.cvService.deleteCv(id);
+  }
+
+  getCurrentCvSkills(): string {
+    return this.currentCv?.skills?.map((skill) => skill.name).toString();
+  }
+
+  addProject(): void {}
+
+  deleteProjectById(id: number): void {}
+
+  toEmployeeInfo(): void {
     this.router.navigateByUrl(`/employee-info/${this.employeeId}`);
   }
 
-  toEmployeeList(): void {
-    this.location.back();
+  save(): void {
+    this.router.navigateByUrl('/employee-list');
+  }
+
+  cancel(): void {
+    this.router.navigateByUrl('/employee-list');
   }
 }

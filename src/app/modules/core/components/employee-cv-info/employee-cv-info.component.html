@@ -1,1 +1,176 @@
-<p>employee-cv-info works!</p>
+<div class="container">
+  <app-header></app-header>
+
+  <div class="body_wrap">
+    <app-sider></app-sider>
+
+    <div class="gray_back">
+      <div class="white_back">
+        <div class="cvs_info">
+          <div class="navbar">
+            <button class="info_btn" (click)="toEmployeeInfo()">Info</button>
+            <button class="cv_btn">CV</button>
+            <div class="navbar_empty"></div>
+          </div>
+
+          <div class="cvs_info_wrap" *ngIf="currentCv">
+            <div class="cv_form_wrap">
+              <div>
+                <div class="cv_list" *ngFor="let cv of cvs">
+                  <div
+                    [ngClass]="{
+                      cv_name_btn_active: cv.id === currentCv?.id,
+                      cv_name_btn: cv.id !== currentCv?.id
+                    }"
+                  >
+                    <div class="cv_title" (click)="setCurrentCv(cv)">
+                      {{ cv.cvName }}
+                    </div>
+                    <div class="delete_cv_btn" (click)="deleteCvById(cv.id)">
+                      X
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cv_form" [formGroup]="form">
+                <div class="form_el">
+                  <span class="form_title"
+                    >Email <span class="red_star">*</span></span
+                  >
+                  <input
+                    type="text"
+                    class="form_input"
+                    placeholder="Email"
+                    value="{{ currentCv?.email }}"
+                    formControlName="email"
+                  />
+                  <span
+                    *ngIf="
+                      form.get('email')?.invalid && form.get('email')?.touched
+                    "
+                    class="error"
+                    >Please, specify the field</span
+                  >
+                </div>
+
+                <div class="form_el">
+                  <span class="form_title"
+                    >Last Name <span class="red_star">*</span></span
+                  >
+                  <input
+                    type="text"
+                    class="form_input"
+                    placeholder="Last Name"
+                    value="{{ currentCv?.lastName }}"
+                    formControlName="lastName"
+                  />
+                  <span
+                    *ngIf="
+                      form.get('lastname')?.invalid &&
+                      form.get('lastname')?.touched
+                    "
+                    class="error"
+                    >Please, specify the field</span
+                  >
+                </div>
+
+                <div class="form_el">
+                  <span class="form_title"
+                    >Skills <span class="red_star">*</span></span
+                  >
+                  <input
+                    type="text"
+                    class="form_input"
+                    placeholder="Skills"
+                    value="{{ getCurrentCvSkills() }}"
+                    formControlName="skills"
+                  />
+                  <span
+                    *ngIf="
+                      form.get('skills')?.invalid && form.get('skills')?.touched
+                    "
+                    class="error"
+                    >Please, specify the field</span
+                  >
+                </div>
+
+                <div class="form_el">
+                  <span class="form_title"
+                    >Specialization <span class="red_star">*</span></span
+                  >
+                  <input
+                    type="text"
+                    class="form_input"
+                    placeholder="Specialization"
+                    value="{{ currentCv?.specialization?.name }}"
+                    formControlName="specialization"
+                  />
+                  <span
+                    *ngIf="
+                      form.get('specialization')?.invalid &&
+                      form.get('specialization')?.touched
+                    "
+                    class="error"
+                    >Please, specify the field</span
+                  >
+                </div>
+
+                <div class="form_el">
+                  <span class="form_title"
+                    >Department <span class="red_star">*</span></span
+                  >
+                  <input
+                    type="text"
+                    class="form_input"
+                    placeholder="Department"
+                    value="{{ currentCv?.department?.name }}"
+                    formControlName="department"
+                  />
+                  <span
+                    *ngIf="
+                      form.get('department')?.invalid &&
+                      form.get('department')?.touched
+                    "
+                    class="error"
+                    >Please, specify the field</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="add_project_btn_wrap">
+              <button class="add_project_btn" (click)="addProject()">
+                Add project
+              </button>
+            </div>
+
+            <div
+              class="projects"
+              *ngFor="let project of currentCv?.cvsProjects"
+            >
+              {{ project | json }}
+
+              <select id="fruits" name="fruits">
+                <option value="apple">Яблоко</option>
+                <option value="banana">Банан</option>
+                <option value="orange">Апельсин</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="cv_form" *ngIf="!currentCv">There are no CVs</div>
+        </div>
+
+        <div class="btns" *ngIf="currentCv">
+          <div class="save_btn_wrap">
+            <button class="save_btn" (click)="save()">Save</button>
+          </div>
+          <div class="cancel_btn_wrap">
+            <button class="cancel_btn" (click)="cancel()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

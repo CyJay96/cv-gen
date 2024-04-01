@@ -1,74 +1,52 @@
-<div class="sider">
-  <div class="menu">
-    <div class="menu_el" *ngIf="!isDashboardPage" (click)="toDashboardPage()">
-      <img
-        class="menu_img"
-        src="../../../../../assets/images/sider/dashboard.svg"
-        alt="Dashboard"
-      />
-      <span class="menu_el_title">Dashboard</span>
-    </div>
-    <div
-      class="menu_el_active"
-      *ngIf="isDashboardPage"
-      (click)="toDashboardPage()"
-    >
-      <img
-        class="menu_img"
-        src="../../../../../assets/images/sider/dashboard.svg"
-        alt="Dashboard"
-      />
-      <span class="menu_el_title">Dashboard</span>
+<div class="sider_wrap">
+  <div class="sider">
+    <div class="menu">
+      <div
+        [ngClass]="{
+          menu_el_active: isDashboardPage,
+          menu_el: !isDashboardPage
+        }"
+        (click)="toDashboardPage()"
+      >
+        <img
+          class="menu_img"
+          src="../../../../../assets/images/sider/dashboard.svg"
+          alt="Dashboard"
+        />
+        <span class="menu_el_title">Dashboard</span>
+      </div>
+
+      <div
+        [ngClass]="{ menu_el_active: isEmployeePage, menu_el: !isEmployeePage }"
+        (click)="toEmployeesPage()"
+      >
+        <img
+          class="menu_img"
+          src="../../../../../assets/images/sider/employees.svg"
+          alt="Employees"
+        />
+        <span class="menu_el_title">Employees</span>
+      </div>
+
+      <div
+        [ngClass]="{ menu_el_active: isProjectPage, menu_el: !isProjectPage }"
+        (click)="toProjectsPage()"
+      >
+        <img
+          class="menu_img"
+          src="../../../../../assets/images/sider/projects.svg"
+          alt="Projects"
+        />
+        <span class="menu_el_title">Projects</span>
+      </div>
     </div>
 
-    <div class="menu_el" *ngIf="!isEmployeePage" (click)="toEmployeesPage()">
+    <div class="trigger">
       <img
-        class="menu_img"
-        src="../../../../../assets/images/sider/employees.svg"
-        alt="Employees"
+        class="trigger_img"
+        src="../../../../../assets/images/sider/trigger.svg"
+        alt="Trigger"
       />
-      <span class="menu_el_title">Employees</span>
     </div>
-    <div
-      class="menu_el_active"
-      *ngIf="isEmployeePage"
-      (click)="toEmployeesPage()"
-    >
-      <img
-        class="menu_img"
-        src="../../../../../assets/images/sider/employees.svg"
-        alt="Employees"
-      />
-      <span class="menu_el_title">Employees</span>
-    </div>
-
-    <div class="menu_el" *ngIf="!isProjectPage" (click)="toProjectsPage()">
-      <img
-        class="menu_img"
-        src="../../../../../assets/images/sider/projects.svg"
-        alt="Projects"
-      />
-      <span class="menu_el_title">Projects</span>
-    </div>
-    <div
-      class="menu_el_active"
-      *ngIf="isProjectPage"
-      (click)="toProjectsPage()"
-    >
-      <img
-        class="menu_img"
-        src="../../../../../assets/images/sider/projects.svg"
-        alt="Projects"
-      />
-      <span class="menu_el_title">Projects</span>
-    </div>
-  </div>
-
-  <div class="trigger">
-    <img
-      class="trigger_img"
-      src="../../../../../assets/images/sider/trigger.svg"
-      alt="Trigger"
-    />
   </div>
 </div>

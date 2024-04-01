@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: '',
     component: CoreComponent,
-    canActivate: [authGuard()],
+    canActivate: [authGuard],
     children: [
       { path: 'employee-list', component: EmployeeListComponent },
       { path: 'employee-info/:id', component: EmployeeInfoComponent },

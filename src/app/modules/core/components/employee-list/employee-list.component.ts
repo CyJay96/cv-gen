@@ -27,11 +27,9 @@ export class EmployeeListComponent implements OnInit {
       .subscribe((employees) => (this.employees = employees));
   }
 
-  toEmployeeInfoById(id: number): void {
+  toEmployeeInfo(id: number): void {
     this.router.navigateByUrl(`employee-info/${id}`);
   }
 
-  addEmployee(): void {
-    this.router.navigateByUrl('employee-list');
-  }
+  addEmployee(): void {}
 }

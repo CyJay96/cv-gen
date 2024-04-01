@@ -1,0 +1,205 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.body_wrap {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.gray_back {
+  font-style: normal;
+  background-color: #fafafa;
+
+  height: 100%;
+  width: 100%;
+
+  padding: 24px 15px 0px 15px;
+}
+
+.white_back {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 100%;
+
+  padding: 24px 15px;
+
+  background-color: white;
+}
+
+.navbar {
+  display: flex;
+}
+
+.info_btn,
+.cv_btn {
+  cursor: pointer;
+
+  width: 55.5px;
+  height: 64px;
+
+  background-color: white;
+
+  border: 0px;
+}
+
+.info_btn {
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.cv_btn {
+  color: #1890ff;
+  border-bottom: 2px solid #1890ff;
+}
+
+.navbar_empty {
+  width: 100%;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.cvs_info_wrap {
+  padding-top: 10px;
+}
+
+.cv_form_wrap {
+  display: flex;
+}
+
+.cv_name_btn_active,
+.cv_name_btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 217px;
+  height: 46px;
+
+  padding: 12px 24px;
+
+  border: 0px;
+}
+
+.cv_name_btn_active {
+  color: #1890ff;
+  border-bottom: 2px solid #1890ff;
+}
+
+.cv_name_btn {
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.cv_title {
+  cursor: pointer;
+
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.delete_cv_btn {
+  cursor: pointer;
+}
+
+.cv_form {
+  display: flex;
+  flex-wrap: wrap;
+
+  padding: 20px 30px;
+}
+
+.form_el {
+  display: flex;
+  flex-direction: column;
+
+  padding: 10px 0px;
+  padding-right: 60px;
+}
+
+.form_input {
+  padding: 5px 12px;
+
+  width: 200px;
+  height: 32px;
+
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: 1px solid #d9d9d9;
+}
+
+.add_project_btn_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  margin: 40px 20px 0px 20px;
+}
+
+.add_project_btn {
+  cursor: pointer;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ffffff;
+
+  width: 121px;
+  height: 32px;
+  background: #1890ff;
+  border: 0px;
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.043);
+  border-radius: 2px;
+}
+
+.btns {
+  display: flex;
+  align-self: flex-end;
+  padding: 10px;
+}
+
+.save_btn,
+.cancel_btn {
+  cursor: pointer;
+  height: 32px;
+
+  margin-left: 15px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.save_btn {
+  width: 62px;
+
+  color: white;
+
+  background: #1890ff;
+  box-sizing: border-box;
+  border: 0px;
+  border-radius: 2px;
+}
+
+.cancel_btn {
+  width: 75px;
+
+  background: #ffffff;
+  box-sizing: border-box;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+}
+
+.save_btn:hover,
+.save_btn:focus,
+.add_project_btn:hover,
+.add_project_btn:focus {
+  background-color: #188fffc0;
+}
+
+.cancel_btn:hover,
+.cancel_btn:focus {
+  background-color: #d9d9d9;
+}

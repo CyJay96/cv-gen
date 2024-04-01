@@ -1,22 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .body_wrap {
   display: flex;
   justify-content: space-between;
+  height: 100%;
 }
 
-.emps_wrap {
-  font-style: normal;
+.gray_back {
   background-color: #fafafa;
-  height: calc(100vh - 48px);
   width: 100%;
-  padding: 24px 15px;
+  padding: 24px 15px 0px 15px;
 }
 
-.emps {
+.white_back {
   display: flex;
   flex-direction: column;
 
   background-color: white;
-  height: calc(100vh - 48px - 24px);
+  height: 100%;
 }
 
 .btn_wrap {

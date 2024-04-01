@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Location } from '@angular/common';
 
 import { Employee } from '../../models/employee';
 import { EmployeeDto } from '../../models/emplyee-dto';
 import { EmployeeService } from '../../services/employee.service';
+import { EmployeeMapper } from '../../mappers/employee.mapper';
 
 @Component({
   selector: 'app-employee-info',
@@ -16,14 +16,15 @@ export class EmployeeInfoComponent implements OnInit {
   private employeeId = Number(this.route.snapshot.paramMap.get('id'));
 
   public employee: Employee = null;
+  public employeeDto: EmployeeDto = null;
 
   public form: FormGroup;
 
   constructor(
     private employeeService: EmployeeService,
+    private employeeMapper: EmployeeMapper,
     private router: Router,
     private route: ActivatedRoute,
-    private location: Location,
     private fb: FormBuilder
   ) {
     this.form = fb.group({
@@ -44,15 +45,16 @@ export class EmployeeInfoComponent implements OnInit {
       .getEmployeeById(this.employeeId)
       .subscribe((employee) => {
         this.employee = employee;
-        this.form.patchValue(this.employee);
+        this.employeeDto = this.employeeMapper.toEmployeeDto(employee);
+        this.form.patchValue(this.employeeDto);
       });
   }
 
-  toEmployeeCvInfoById(): void {
+  toEmployeeCvs(): void {
     this.router.navigateByUrl(`/employee-cv-info/${this.employeeId}`);
   }
 
-  updateEmployee(): void {
+  save(): void {
     if (this.form.invalid) {
       return;
     }
@@ -64,7 +66,7 @@ export class EmployeeInfoComponent implements OnInit {
       });
   }
 
-  toEmployeeList(): void {
-    this.location.back();
+  cancel(): void {
+    this.router.navigateByUrl('/employee-list');
   }
 }
