@@ -5,11 +5,16 @@
     <app-sider></app-sider>
 
     <div class="gray_back">
+      <app-page-header
+        [titleFirstText]="titleFirstText"
+        [titleLastText]="titleLastText"
+        [title2]="title2"
+        [title3]="title3"
+      ></app-page-header>
+
       <div class="white_back">
         <div class="btn_wrap">
-          <button class="add_emp_btn" (click)="addEmployee()">
-            Add employee
-          </button>
+          <button class="add_btn" (click)="addEmployee()">Add employee</button>
         </div>
 
         <table class="emp_table">

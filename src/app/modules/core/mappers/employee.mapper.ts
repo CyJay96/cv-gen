@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 
-import { Employee } from '../models/employee';
-import { EmployeeDto } from '../models/emplyee-dto';
+import { Employee } from '../models/responses/employee.interface';
+import { EmployeeForm } from '../models/forms/employee-form.interface';
+import { EmployeeDto } from '../models/requests/employee-dto.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EmployeeMapper {
-  toEmployeeDto(employee: Employee): EmployeeDto {
+  toEmployeeForm(employee: Employee): EmployeeForm {
     return {
       firstName: employee.firstName,
       lastName: employee.lastName,
@@ -15,5 +16,15 @@ export class EmployeeMapper {
       department: employee.department?.name,
       specialization: employee.department?.name,
     } as EmployeeDto;
+  }
+
+  toEmployeeDto(employeeForm: EmployeeForm): EmployeeDto {
+    return {
+      firstName: employeeForm.firstName,
+      lastName: employeeForm.lastName,
+      email: employeeForm.email,
+      department: employeeForm.department,
+      specialization: employeeForm.department,
+    } as EmployeeForm;
   }
 }

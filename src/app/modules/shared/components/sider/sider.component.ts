@@ -15,11 +15,15 @@ export class SiderComponent {
 
   constructor(private router: Router) {}
 
-  toDashboardPage(): void {}
+  toDashboardPage(): void {
+    this.router.navigateByUrl('dashboard');
+  }
 
   toEmployeesPage(): void {
     this.router.navigateByUrl('employee-list');
   }
 
-  toProjectsPage(): void {}
+  toProjectsPage(): void {
+    this.router.navigateByUrl('project-list');
+  }
 }

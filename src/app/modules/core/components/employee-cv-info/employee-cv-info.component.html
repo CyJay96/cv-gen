@@ -5,6 +5,13 @@
     <app-sider></app-sider>
 
     <div class="gray_back">
+      <app-page-header
+        [titleFirstText]="titleFirstText"
+        [titleLastText]="titleLastText"
+        [title2]="title2"
+        [title3]="title3"
+      ></app-page-header>
+
       <div class="white_back">
         <div class="cvs_info">
           <div class="navbar">
@@ -150,12 +157,6 @@
               *ngFor="let project of currentCv?.cvsProjects"
             >
               {{ project | json }}
-
-              <select id="fruits" name="fruits">
-                <option value="apple">Яблоко</option>
-                <option value="banana">Банан</option>
-                <option value="orange">Апельсин</option>
-              </select>
             </div>
           </div>
 

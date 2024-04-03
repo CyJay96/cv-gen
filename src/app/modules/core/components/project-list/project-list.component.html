@@ -1,0 +1,40 @@
+<div class="container">
+  <app-header></app-header>
+
+  <div class="body_wrap">
+    <app-sider></app-sider>
+
+    <div class="gray_back">
+      <app-page-header
+        [titleFirstText]="titleFirstText"
+        [titleLastText]="titleLastText"
+        [title2]="title2"
+        [title3]="title3"
+      ></app-page-header>
+
+      <div class="white_back">
+        <div class="btn_wrap">
+          <button class="add_btn" (click)="addProject()">Add project</button>
+        </div>
+
+        <table class="projects_table">
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Start date</th>
+            <th>End date</th>
+          </tr>
+          <tr
+            *ngFor="let project of projects"
+            (click)="toProjectInfo(project.id)"
+          >
+            <td>{{ project.projectName }}</td>
+            <td>{{ project.description }}</td>
+            <td>{{ project.startDate }}</td>
+            <td>{{ project.endDate }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -54,13 +54,13 @@
   background-color: #188fffc0;
 }
 
-.emp_table {
+.projects_table {
   border-collapse: collapse;
   margin: 40px 20px;
 }
 
-.emp_table th,
-.emp_table td {
+.projects_table th,
+.projects_table td {
   font-size: 14px;
   line-height: 22px;
 
@@ -70,17 +70,17 @@
   padding: 8px;
 }
 
-.emp_table tr:hover,
-.emp_table tr:focus {
+.projects_table tr:hover,
+.projects_table tr:focus {
   background-color: #dddd;
 }
 
-.emp_table th {
+.projects_table th {
   font-weight: 700;
   text-align: left;
   background-color: #fafafa;
 }
 
-.emp_table td {
+.projects_table td {
   cursor: pointer;
 }

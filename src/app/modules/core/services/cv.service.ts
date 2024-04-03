@@ -4,8 +4,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { ErrorHandlerService } from '../../shared/services/error-handler.service';
 
-import { Cv } from '../models/cv';
-import { CvDto } from '../models/cv-dto';
+import { Cv } from '../models/responses/cv.interface';
+import { CvDto } from '../models/requests/cv-dto.interface';
 
 @Injectable({
   providedIn: 'root',

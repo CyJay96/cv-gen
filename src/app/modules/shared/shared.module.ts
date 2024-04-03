@@ -7,11 +7,17 @@ import { SharedComponent } from './shared.component';
 
 import { HeaderComponent } from './components/header/header.component';
 import { SiderComponent } from './components/sider/sider.component';
+import { PageHeaderComponent } from './components/page-header/page-header.component';
 
 @NgModule({
-  declarations: [SharedComponent, HeaderComponent, SiderComponent],
+  declarations: [
+    SharedComponent,
+    HeaderComponent,
+    SiderComponent,
+    PageHeaderComponent,
+  ],
   imports: [CommonModule, SharedRoutingModule, HttpClientModule],
-  exports: [HeaderComponent, SiderComponent],
+  exports: [HeaderComponent, SiderComponent, PageHeaderComponent],
   providers: [],
   bootstrap: [SharedComponent],
 })

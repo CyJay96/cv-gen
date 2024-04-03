@@ -1,0 +1,195 @@
+<div class="container">
+  <app-header></app-header>
+
+  <div class="body_wrap">
+    <app-sider></app-sider>
+
+    <div class="gray_back">
+      <app-page-header
+        [titleFirstText]="titleFirstText"
+        [titleLastText]="titleLastText"
+        [title2]="title2"
+        [title3]="title3"
+      ></app-page-header>
+
+      <div class="white_back">
+        <div class="project_info">
+          <div class="emp_form" [formGroup]="form">
+            <div class="form_el">
+              <span class="form_title"
+                >Name <span class="red_star">*</span></span
+              >
+              <input
+                type="text"
+                class="form_input"
+                placeholder="Name"
+                value="{{ project?.projectName }}"
+                formControlName="projectName"
+              />
+              <span
+                *ngIf="
+                  form.get('projectName')?.invalid &&
+                  form.get('projectName')?.touched
+                "
+                class="error"
+                >Please, specify the field</span
+              >
+            </div>
+
+            <div class="form_el">
+              <span class="form_title"
+                >Start date <span class="red_star">*</span></span
+              >
+              <input
+                type="date"
+                class="form_input"
+                placeholder="Start date"
+                value="{{ project?.startDate?.split('T').at(0) }}"
+                formControlName="startDate"
+              />
+              <span
+                *ngIf="
+                  form.get('startDate')?.invalid &&
+                  form.get('startDate')?.touched
+                "
+                class="error"
+                >Please, specify the field</span
+              >
+            </div>
+
+            <div class="form_el">
+              <span class="form_title"
+                >End date <span class="red_star">*</span></span
+              >
+              <input
+                type="date"
+                class="form_input"
+                placeholder="End date"
+                value="{{ project?.endDate?.split('T').at(0) }}"
+                formControlName="endDate"
+              />
+              <span
+                *ngIf="
+                  form.get('endDate')?.invalid && form.get('endDate')?.touched
+                "
+                class="error"
+                >Please, specify the field</span
+              >
+            </div>
+
+            <div class="form_el">
+              <span class="form_title"
+                >Team size <span class="red_star">*</span></span
+              >
+              <input
+                type="text"
+                class="form_input"
+                placeholder="Team size"
+                value="{{ project?.teamSize }}"
+                formControlName="teamSize"
+              />
+              <span
+                *ngIf="
+                  form.get('teamSize')?.invalid && form.get('teamSize')?.touched
+                "
+                class="error"
+                >Please, specify the field</span
+              >
+            </div>
+
+            <div class="form_el">
+              <span class="form_title"
+                >Tech stack <span class="red_star">*</span></span
+              >
+              <input
+                type="text"
+                class="form_input"
+                placeholder="Tech stack"
+                value="{{ getProjectTechSkills() }}"
+                formControlName="techStack"
+              />
+              <span
+                *ngIf="
+                  form.get('techStack')?.invalid &&
+                  form.get('techStack')?.touched
+                "
+                class="error"
+                >Please, specify the field</span
+              >
+            </div>
+
+            <div class="form_el">
+              <span class="form_title"
+                >Roles <span class="red_star">*</span></span
+              >
+              <input
+                type="text"
+                class="form_input"
+                placeholder="Roles"
+                value="{{ getProjectRoles() }}"
+                formControlName="teamRoles"
+              />
+              <span
+                *ngIf="
+                  form.get('teamRoles')?.invalid &&
+                  form.get('teamRoles')?.touched
+                "
+                class="error"
+                >Please, specify the field</span
+              >
+            </div>
+
+            <div class="form_el">
+              <span class="form_title"
+                >Description <span class="red_star">*</span></span
+              >
+              <textarea
+                class="form_area"
+                placeholder="Description"
+                formControlName="description"
+                >{{ project?.description }}</textarea
+              >
+              <span
+                *ngIf="
+                  form.get('description')?.invalid &&
+                  form.get('description')?.touched
+                "
+                class="error"
+                >Please, specify the field</span
+              >
+            </div>
+
+            <div class="form_el">
+              <span class="form_title"
+                >Responsibilities <span class="red_star">*</span></span
+              >
+              <textarea
+                class="form_area"
+                placeholder="Responsibilities"
+                formControlName="responsibilities"
+                >{{ getProjectResponsibilities() }}</textarea
+              >
+              <span
+                *ngIf="
+                  form.get('responsibilities')?.invalid &&
+                  form.get('responsibilities')?.touched
+                "
+                class="error"
+                >Please, specify the field</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="btns">
+          <div class="save_btn_wrap">
+            <button class="save_btn" (click)="save()">Save</button>
+          </div>
+          <div class="cancel_btn_wrap">
+            <button class="cancel_btn" (click)="cancel()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

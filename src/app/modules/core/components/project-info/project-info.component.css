@@ -31,36 +31,6 @@
   background-color: white;
 }
 
-.navbar {
-  display: flex;
-}
-
-.info_btn,
-.cv_btn {
-  cursor: pointer;
-
-  width: 55.5px;
-  height: 64px;
-
-  background-color: white;
-
-  border: 0px;
-}
-
-.info_btn {
-  color: #1890ff;
-  border-bottom: 2px solid #1890ff;
-}
-
-.cv_btn {
-  border-bottom: 2px solid #f0f0f0;
-}
-
-.navbar_empty {
-  width: 100%;
-  border-bottom: 2px solid #f0f0f0;
-}
-
 .emp_form {
   display: flex;
   flex-wrap: wrap;
@@ -76,15 +46,23 @@
   padding-right: 60px;
 }
 
+.form_input,
+.form_area {
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: 1px solid #d9d9d9;
+}
+
 .form_input {
   padding: 5px 12px;
 
   width: 200px;
   height: 32px;
+}
 
-  box-sizing: border-box;
-  border-radius: 2px;
-  border: 1px solid #d9d9d9;
+.form_area {
+  width: 400px;
+  height: 74px;
 }
 
 .btns {

@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { Employee } from '../../models/employee';
-import { EmployeeDto } from '../../models/emplyee-dto';
+import { Employee } from '../../models/responses/employee.interface';
+import { EmployeeForm } from '../../models/forms/employee-form.interface';
+import { EmployeeDto } from '../../models/requests/employee-dto.interface';
 import { EmployeeService } from '../../services/employee.service';
 import { EmployeeMapper } from '../../mappers/employee.mapper';
 
@@ -13,10 +14,15 @@ import { EmployeeMapper } from '../../mappers/employee.mapper';
   styleUrls: ['./employee-info.component.css'],
 })
 export class EmployeeInfoComponent implements OnInit {
+  public titleFirstText: string = 'Home / Employees /';
+  public titleLastText: string = '';
+  public title2: string = 'Employees';
+  public title3: string = '';
+
   private employeeId = Number(this.route.snapshot.paramMap.get('id'));
 
   public employee: Employee = null;
-  public employeeDto: EmployeeDto = null;
+  public employeeForm: EmployeeForm = null;
 
   public form: FormGroup;
 
@@ -38,6 +44,16 @@ export class EmployeeInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEmployeeById();
+    this.setPageHeader();
+  }
+
+  setPageHeader(): void {
+    this.employeeService
+      .getEmployeeById(this.employeeId)
+      .subscribe((employee) => {
+        this.titleLastText = `${employee?.firstName} ${employee?.lastName}`;
+        this.title3 = `${employee?.firstName} ${employee?.lastName}'s profile`;
+      });
   }
 
   getEmployeeById(): void {
@@ -45,8 +61,8 @@ export class EmployeeInfoComponent implements OnInit {
       .getEmployeeById(this.employeeId)
       .subscribe((employee) => {
         this.employee = employee;
-        this.employeeDto = this.employeeMapper.toEmployeeDto(employee);
-        this.form.patchValue(this.employeeDto);
+        this.employeeForm = this.employeeMapper.toEmployeeForm(employee);
+        this.form.patchValue(this.employeeForm);
       });
   }
 
@@ -59,8 +75,12 @@ export class EmployeeInfoComponent implements OnInit {
       return;
     }
 
+    const employeeDto: EmployeeDto = this.employeeMapper.toEmployeeDto(
+      this.form.getRawValue() as EmployeeForm
+    );
+
     this.employeeService
-      .updateEmployee(this.employeeId, this.form.getRawValue() as EmployeeDto)
+      .updateEmployee(this.employeeId, employeeDto)
       .subscribe((_) => {
         this.router.navigateByUrl('/employee-list');
       });

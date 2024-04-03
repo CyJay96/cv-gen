@@ -4,8 +4,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { ErrorHandlerService } from '../../shared/services/error-handler.service';
 
-import { Employee } from '../models/employee';
-import { EmployeeDto } from '../models/emplyee-dto';
+import { Employee } from '../models/responses/employee.interface';
+import { EmployeeDto } from '../models/requests/employee-dto.interface';
 
 @Injectable({
   providedIn: 'root',

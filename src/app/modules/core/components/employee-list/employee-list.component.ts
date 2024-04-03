@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Employee } from '../../models/employee';
+import { Employee } from '../../models/responses/employee.interface';
 import { EmployeeService } from '../../services/employee.service';
 
 @Component({
@@ -10,6 +10,11 @@ import { EmployeeService } from '../../services/employee.service';
   styleUrls: ['./employee-list.component.css'],
 })
 export class EmployeeListComponent implements OnInit {
+  public titleFirstText: string = 'Home /';
+  public titleLastText: string = 'Employees';
+  public title2: string = 'Employees';
+  public title3: string = 'Employees list';
+
   public employees: Employee[] = [];
 
   constructor(
@@ -24,7 +29,12 @@ export class EmployeeListComponent implements OnInit {
   getEmployees(): void {
     this.emploueeService
       .getEmployees()
-      .subscribe((employees) => (this.employees = employees));
+      .subscribe(
+        (employees) =>
+          (this.employees = employees.sort((a, b) =>
+            a.firstName > b.firstName ? 1 : a.firstName < b.firstName ? -1 : 0
+          ))
+      );
   }
 
   toEmployeeInfo(id: number): void {

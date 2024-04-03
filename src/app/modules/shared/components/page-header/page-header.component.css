@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: column;
+
+  font-size: 14px;
+
+  padding: 16px 24px;
+  height: 136px;
+  background: #ffffff;
+}
+
+.title1,
+.title2,
+.title3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 44px;
+}
+
+.title1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.first_text {
+  color: rgba(0, 0, 0, 0.45);
+  margin-right: 3px;
+}
+
+.title2 {
+  font-weight: 700;
+  font-size: 20px;
+}

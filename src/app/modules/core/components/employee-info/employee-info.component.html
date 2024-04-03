@@ -5,6 +5,13 @@
     <app-sider></app-sider>
 
     <div class="gray_back">
+      <app-page-header
+        [titleFirstText]="titleFirstText"
+        [titleLastText]="titleLastText"
+        [title2]="title2"
+        [title3]="title3"
+      ></app-page-header>
+
       <div class="white_back">
         <div class="emp_info">
           <div class="navbar">
@@ -22,7 +29,7 @@
                 type="text"
                 class="form_input"
                 placeholder="First Name"
-                value="{{ employeeDto?.firstName }}"
+                value="{{ employee?.firstName }}"
                 formControlName="firstName"
               />
               <span
@@ -43,7 +50,7 @@
                 type="text"
                 class="form_input"
                 placeholder="Last Name"
-                value="{{ employeeDto?.lastName }}"
+                value="{{ employee?.lastName }}"
                 formControlName="lastName"
               />
               <span
@@ -63,7 +70,7 @@
                 type="text"
                 class="form_input"
                 placeholder="Email"
-                value="{{ employeeDto?.email }}"
+                value="{{ employee?.email }}"
                 formControlName="email"
               />
               <span
@@ -81,7 +88,7 @@
                 type="text"
                 class="form_input"
                 placeholder="Specialization"
-                value="{{ employeeDto?.specialization }}"
+                value="{{ employee?.specialization?.name }}"
                 formControlName="specialization"
               />
               <span
@@ -102,7 +109,7 @@
                 type="text"
                 class="form_input"
                 placeholder="Department"
-                value="{{ employeeDto?.department }}"
+                value="{{ employee?.department?.name }}"
                 formControlName="department"
               />
               <span

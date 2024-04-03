@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { UserDto } from '../../models/user-dto';
+import { Tokens } from '../../models/tokens';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -33,12 +34,11 @@ export class LoginComponent {
 
     this.authService
       .login(this.form.getRawValue() as UserDto)
-      .subscribe((response) => {
-        console.log(response);
+      .subscribe((tokens: Tokens) => {
         localStorage.setItem('email', this.form.getRawValue().email);
-        localStorage.setItem('access_token', response.access_token);
-        localStorage.setItem('refresh_token', response.refresh_token);
-        this.router.navigateByUrl('/employee-list');
+        localStorage.setItem('access_token', tokens?.access_token);
+        localStorage.setItem('refresh_token', tokens?.refresh_token);
+        this.router.navigateByUrl('/dashboard');
       });
   }
 }

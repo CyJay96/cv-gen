@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.body_wrap {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.gray_back {
+  background-color: #fafafa;
+  width: 100%;
+}
+
+.white_back {
+  display: flex;
+  flex-direction: column;
+
+  background-color: white;
+  height: 100%;
+
+  margin: 24px 15px 0px 15px;
+}

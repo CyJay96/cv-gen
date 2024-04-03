@@ -1,5 +1,5 @@
-import { Cv } from './cv';
-import { Shared } from './shared';
+import { Cv } from './cv.interface';
+import { Shared } from './shared.interface';
 
 export interface Employee {
   id: number;

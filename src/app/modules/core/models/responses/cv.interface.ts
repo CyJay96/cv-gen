@@ -1,6 +1,6 @@
-import { Language } from './language';
-import { Project } from './project';
-import { Shared } from './shared';
+import { Language } from './language.interface';
+import { Project } from './project.interface';
+import { Shared } from './shared.interface';
 
 export interface Cv {
   id: number;
