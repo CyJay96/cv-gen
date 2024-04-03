@@ -53,10 +53,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "cvgen:build:production"
+              "buildTarget": "cvgen:build:production"
             },
             "development": {
-              "browserTarget": "cvgen:build:development"
+              "buildTarget": "cvgen:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -64,7 +64,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cvgen:build"
+            "buildTarget": "cvgen:build"
           }
         },
         "test": {
