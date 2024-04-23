@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { Store } from '@ngrx/store';
+import { loginAction } from '../../store/actions/login.action';
+
 import { UserDto } from '../../models/user-dto';
 import { Tokens } from '../../models/tokens';
 import { AuthService } from '../../services/auth.service';
@@ -17,6 +20,7 @@ export class LoginComponent {
   public form: FormGroup;
 
   constructor(
+    private store: Store,
     private authService: AuthService,
     private router: Router,
     private fb: FormBuilder
@@ -31,6 +35,8 @@ export class LoginComponent {
     if (this.form.invalid) {
       return;
     }
+
+    this.store.dispatch(loginAction(this.form.getRawValue() as UserDto));
 
     this.authService
       .login(this.form.getRawValue() as UserDto)
